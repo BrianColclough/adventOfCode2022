@@ -23,7 +23,7 @@ def getMostCalories(lines):
     return max
 
 def getTopThreeMostCalories(lines):
-    allVals = []
+    allVals = [] 
     currentVal = 0
     
     for l in lines:
@@ -33,18 +33,11 @@ def getTopThreeMostCalories(lines):
         else:
             currentVal = currentVal + int(l)
 
-    result = []
-    val = max(allVals)
-    allVals.remove(val)
-    result.append(val)
-    val = max(allVals)
-    allVals.remove(val)
-    result.append(val)
-    val = max(allVals)
-    allVals.remove(val)
-    result.append(val)
-    return sum(result)
-    
+    allVals = sorted(allVals)
+
+    topThree = allVals[-3::]
+
+    return sum(topThree)
 
 if __name__ == "__main__":
     main()    
